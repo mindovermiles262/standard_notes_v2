@@ -5,7 +5,7 @@ services:
     container_name: server_self_hosted
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 4600:3000
       - 3125:3104
     volumes:
       - ./logs:/var/lib/server/logs
@@ -32,10 +32,10 @@ services:
     image: mysql:8
     container_name: db_self_hosted
     environment:
-      - MYSQL_DATABASE: ${DB_DATABASE}
-      - MYSQL_USER: ${DB_USERNAME}
-      - MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      - MYSQL_PASSWORD: ${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     expose:
       - 3306
     restart: unless-stopped
